@@ -11,14 +11,14 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface TodoDao {
     @Query("SELECT * FROM todo_items ORDER BY isDone ASC, id DESC")
-    fun getAllTodos(): Flow<List<ToDoEntity>>
+    fun getAllTodos(): Flow<List<TodoEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertTodo(item: ToDoEntity)
+    suspend fun insertTodo(item: TodoEntity)
 
     @Delete
-    suspend fun deleteTodo(item: ToDoEntity)
+    suspend fun deleteTodo(item: TodoEntity)
 
     @Update
-    suspend fun updateTodo(item: ToDoEntity)
+    suspend fun updateTodo(item: TodoEntity)
 }
